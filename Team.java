@@ -73,10 +73,20 @@ public class Team {
     }
 
     public String printStartPlay (){
-        int chance = (int)(Math.random() * ((2) + 1));
+        int chance = (int) (Math.random() * ((2) + 1));
         if (chance == 0) return name + " take the ball up the court";
         else if (chance == 1) return name + " looking to score";
         else return name + " ball";
+    }
+
+    public String printRebound (Player rebounder, Team team,Boolean opponent){
+        // Also updates rebound totals
+        rebounder.rebounds++;
+        int chance = (int)(Math.random() * ((2) + 1));
+        if (opponent == false) return rebounder.name + " keeps the play alive for the " + team.name;
+        if (chance == 0) return rebounder.name + " grabs the board for the " + team.name;
+        else if (chance == 1) return rebounder.name + " with the rebound for the " + team.name;
+        else return rebounder.name + " picks that one up off the miss  " ;
     }
 
 
@@ -95,12 +105,17 @@ public class Team {
             if (shooter.shoot(this) == shooter) return;
             chance = (int)(Math.random() * ((Oreb + opponent.Dreb) + 1));
             if (chance > Oreb) {
-                System.out.println(opponent.name + " come up with the rebound");
+                Player rebounder = opponent.getRebounder();
+                System.out.println(printRebound(rebounder,opponent,true));
+                rebounder.rebounds++;
                 System.out.println();
                 return;
             }
-            else 
-                System.out.println(name + " grab the rebound");
+            else {
+                Player rebounder = this.getRebounder();
+                System.out.println(printRebound(rebounder,this,false));
+                rebounder.rebounds++;
+            }
                 System.out.println();
             
     }

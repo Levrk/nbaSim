@@ -21,9 +21,9 @@ public class Game {
             teamA.runPlay(teamB);
             teamB.runPlay(teamA);
         }
-        
+        System.out.println("");
         System.out.println("The quarter is nearly over");
-        
+        System.out.println("");
 
         teamA.runPlay(teamB);
         teamB.runPlay(teamA);
