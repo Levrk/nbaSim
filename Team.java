@@ -9,11 +9,12 @@ public class Team {
     private int Oreb;
     private int tov;
     public int assistP;
-    public int points;
 
     public Team (String name, Player[] team, int[] shooters, int[] passers, int[] rebounders, int Oreb, int Dreb, int assistP, int tov){
         this.name = name;
         this.team = team;
+        // these arrays indicate probability of a given player to shoot/pass/rebound 
+        //based on their index in team
         this.shooters = shooters;
         this.passers = passers;
         this.rebounders = rebounders;
@@ -21,12 +22,12 @@ public class Team {
         this.Oreb = Oreb;
         this.tov = tov;
         this.assistP = assistP;
-        this.points = points;
     }
 
 
     @Override
     public String toString (){
+        //prints statsheet
         String output = "";
         for (Player p : team)
             output = output + (p.name + " " +Integer.toString(p.points) + " Points, "  + Integer.toString(p.rebounds) + " Rebounds, " + Integer.toString(p.assists)+ " Assists, " + Integer.toString(p.tov) + " Turnovers, "  + "\n");
@@ -34,18 +35,18 @@ public class Team {
     }
 
     public void printTeam(){
-        
-
-
+        //this function will be used to print final scores
 
     }
 
     public Player getShooter(){
+        //returns the shooter
         int chance = (int)(Math.random() * ((shooters.length-1) + 1));
         return team[shooters[chance]];
     }
 
     public Player getRebounder(){
+        //returns the rebounder 
         int chance = (int)(Math.random() * ((rebounders.length-1) + 1));
         return team[rebounders[chance]];
     }
@@ -61,11 +62,13 @@ public class Team {
 
     public Player getRandomPlayer(){
         //returns random player
+        //currently using this function for turnovers
         int chance = (int)(Math.random() * ((team.length-1) + 1));
         return team[chance];
     }
 
     public String printAssist(Player passer){
+        //prints assist message
         int chance = (int)(Math.random() * ((2) + 1));
         if (chance == 0) return "Off the pass from " + passer.name;
         else if (chance == 1) return "Off the feed from " + passer.name;
@@ -73,6 +76,7 @@ public class Team {
     }
 
     public String printStartPlay (){
+        //prints a message at the start of the play
         int chance = (int) (Math.random() * ((2) + 1));
         if (chance == 0) return name + " take the ball up the court";
         else if (chance == 1) return name + " looking to score";
@@ -80,8 +84,8 @@ public class Team {
     }
 
     public String printRebound (Player rebounder, Team team,Boolean opponent){
-        // Also updates rebound totals
-        rebounder.rebounds++;
+        //prints rebound message
+        //opponent==false indicates a defensive rebound
         int chance = (int)(Math.random() * ((2) + 1));
         if (opponent == false) return rebounder.name + " keeps the play alive for the " + team.name;
         if (chance == 0) return rebounder.name + " grabs the board for the " + team.name;
@@ -93,6 +97,7 @@ public class Team {
 
     public void runPlay (Team opponent) {
         System.out.println(printStartPlay());
+        //checking if there was a turnover prior to the shot
         int chance = (int)(Math.random() * ((100) + 1));
         if (chance < tov) {
             System.out.println(name + " turn over the ball");
@@ -101,10 +106,14 @@ public class Team {
             return;
         }
         while (true){
+            //find out who shoots and return if they make it
             Player shooter = getShooter();
             if (shooter.shoot(this) == shooter) return;
+            //calculate who gets the rebound
             chance = (int)(Math.random() * ((Oreb + opponent.Dreb) + 1));
             if (chance > Oreb) {
+                //indicates offensive rebound
+                //pick rebounder, update stats, print, end play
                 Player rebounder = opponent.getRebounder();
                 System.out.println(printRebound(rebounder,opponent,true));
                 rebounder.rebounds++;
@@ -112,6 +121,8 @@ public class Team {
                 return;
             }
             else {
+                //indicates defensive rebound
+                //pick rebounder, update stats, print, shoot again
                 Player rebounder = this.getRebounder();
                 System.out.println(printRebound(rebounder,this,false));
                 rebounder.rebounds++;
