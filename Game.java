@@ -13,38 +13,46 @@ public class Game {
     }
 
 
+    
 
-    public static void playQuarter(Team teamA,Team teamB,Integer q){
+
+    public static void playQuarter(Team teamA,Team teamB,Integer q, int pos){
         //runs i plays for each team and then 2 more each with special end of quarter messages
         System.out.println("Quarter "+q);
+        System.out.println("---------");
+        System.out.println("");
 
-        for (int i = 0;i<1;i++){
+        for (int i = 0;i<pos;i++){
+            if (i==pos-2) System.out.println("\nThe quarter is almost finished...\n");
             teamA.runPlay(teamB);
+            if (i==pos-1) System.out.println("\nAs the clock is winding down...");
             teamB.runPlay(teamA);
         }
 
         // I can probably fit this into the for loop (needs work)
-        System.out.println("");
-        System.out.println("The quarter is nearly over");
-        System.out.println("");
-        teamA.runPlay(teamB);
-        teamB.runPlay(teamA);
-        teamA.runPlay(teamB);
-        System.out.println("");
-        System.out.println("As the clock is winding down...");
-        teamB.runPlay(teamA);
         System.out.println(teamA);
         System.out.println(teamB);
-        
 
 
     }
 
-    public static Team endGame (Team teamA,Team teamB){
-        //here is where I will print final scores and calculate winner (needs work)
-        return teamA;
+    public static Team endGame(Team teamA,Team teamB){
+        //this function will be used to print final scores
+        // it will also return the winner
+        int aTotal = 0;
+        for (Player A : teamA.team){
+            aTotal = aTotal + A.points;
+        }
+        int bTotal = 0;
+        for (Player B : teamB.team){
+            bTotal = bTotal + B.points;
+        }
+        System.out.println(teamA.name + " " + aTotal + " Points" );
+        System.out.println(teamB.name + " " + bTotal + " Points" );
+        //teamA wins in case of tie
+        if (bTotal > aTotal) return teamB;
+        else return teamA;
     }
-
 
 
     public static Team playGame(Team teamA,Team teamB){
@@ -53,13 +61,13 @@ public class Game {
         //might want to add a tip off to randomize who starts with the ball(needs work)
         // if i do the above i will have to swap off between who is team a and b in the play quarter calls
 
-        playQuarter(teamA, teamB,1);
-        playQuarter(teamA, teamB,2);
-        playQuarter(teamA, teamB,3);
-        playQuarter(teamA, teamB,4);
+        playQuarter(teamA, teamB,1,20);
+        playQuarter(teamA, teamB,2,20);
+        playQuarter(teamA, teamB,3,20);
+        playQuarter(teamA, teamB,4,20);
 
         Team winner = endGame(teamA,teamB);
-
+        winner.printWinner();
         //add function to reset all player stats to zero (needs work)
         //maybe also a function to write box-scores as a .txt (needs work)
 

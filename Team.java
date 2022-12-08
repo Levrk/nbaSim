@@ -1,7 +1,7 @@
 public class Team {
     
-    private String name;
-    private Player[] team;
+    public String name;
+    public Player[] team;
     private int[] shooters;
     private int[] passers;
     private int[] rebounders;
@@ -28,15 +28,15 @@ public class Team {
     @Override
     public String toString (){
         //prints statsheet
-        String output = "";
+        String output = this.name + " box score \n------------------\n";
         for (Player p : team)
             output = output + (p.name + " " +Integer.toString(p.points) + " Points, "  + Integer.toString(p.rebounds) + " Rebounds, " + Integer.toString(p.assists)+ " Assists, " + Integer.toString(p.tov) + " Turnovers, "  + "\n");
         return output;
     }
 
-    public void printTeam(){
-        //this function will be used to print final scores
-
+    public void printWinner(){
+        System.out.println();
+        System.out.println(name + " win!!!");
     }
 
     public Player getShooter(){
