@@ -8,7 +8,7 @@ public class Team {
     private int Dreb;
     private int Oreb;
     private int tov;
-    private int assistP;
+    public int assistP;
     public int points;
 
     public Team (String name, Player[] team, int[] shooters, int[] passers, int[] rebounders, int Oreb, int Dreb, int assistP, int tov){
@@ -90,9 +90,9 @@ public class Team {
             getRandomPlayer().tov++;
             return;
         }
-        //so we can remember the value for assist
-        Player shooter = getShooter();
-        while (shooter.shoot()==false){
+        while (true){
+            Player shooter = getShooter();
+            if (shooter.shoot(this) == shooter) return;
             chance = (int)(Math.random() * ((Oreb + opponent.Dreb) + 1));
             if (chance > Oreb) {
                 System.out.println(opponent.name + " come up with the rebound");
@@ -101,16 +101,9 @@ public class Team {
             }
             else 
                 System.out.println(name + " grab the rebound");
-            if (shooter.shoot()==false) shooter = getShooter();
+                System.out.println();
             
     }
-        chance = (int)(Math.random() * (100 + 1));
-        if (chance < assistP){
-            Player passer = getPasser(shooter);
-            System.out.println(printAssist(passer));
-            passer.assists++;
-        }
-        System.out.println();
     }
 
     public static void main (String[] args){

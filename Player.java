@@ -10,6 +10,7 @@ public class Player{
     public int tov;
     public int rebounds;
     public int assists;
+    public Team team;
     
     public Player (int ppg, int rpg, int apg, int fg, int threeP, String name) {
         this.ppg = ppg;
@@ -22,49 +23,67 @@ public class Player{
         this.rebounds = 0;
         this.tov = 0;
         this.assists = 0;
+
     }
 
-    public boolean shoot(){
+    public Player shoot(Team team){
         if (this.threeP > 40) {
             int chance = (int)(Math.random() * ((9) + 1));
-            if (chance > 3) return this.shoot3();
-            else return this.shoot2();
+            if (chance > 3) return this.shoot3(team);
+            else return this.shoot2(team);
         }
         else if (this.threeP > 35){
             int chance = (int)(Math.random() * ((9) + 1));
-            if (chance > 4) return this.shoot3();
-            else return this.shoot2();
+            if (chance > 4) return this.shoot3(team);
+            else return this.shoot2(team);
 
         }
         else {
             int chance = (int)(Math.random() * ((9) + 1));
-            if (chance > 5) return this.shoot3();
-            else return this.shoot2();
+            if (chance > 5) return this.shoot3(team);
+            else return this.shoot2(team);
         }
             
     }
     
-    public boolean shoot2 () { 
+    public Player shoot2 (Team team) { 
         int chance = (int)(Math.random() * ((100- 0) + 1));
         boolean score = chance < this.fg;
         if (score == true) {
         points = points + 2 ;
         System.out.println(printMade2());
+        if (chance < team.assistP){
+            Player passer = team.getPasser(this);
+            System.out.println(team.printAssist(passer));
+            System.out.println("");
+            passer.assists++;
+        }
+        return this;
         }
         else System.out.println(printMissed2());
-        return score;
+        chance = (int)(Math.random() * (100 + 1));
+        return null;
+        
+        
     }
 
-    public boolean shoot3 () { 
+    public Player shoot3 (Team team) { 
         int chance = (int)(Math.random() * ((100- 0) + 1));
         boolean score = chance < this.threeP;
         if (score == true) {
-            points = points + 3 ;
-            System.out.println(printMade3());
-            }
-            else System.out.println(printMissed3());
-            
-        return score;
+        points = points + 3 ;
+        System.out.println(printMade3());
+        if (chance < team.assistP){
+            Player passer = team.getPasser(this);
+            System.out.println(team.printAssist(passer));
+            System.out.println("");
+            passer.assists++;
+        }
+        return this;
+        }
+        else System.out.println(printMissed2());
+        chance = (int)(Math.random() * (100 + 1));
+        return null;
     }
 
     public String printMade3 (){

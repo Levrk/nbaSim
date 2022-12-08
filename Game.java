@@ -22,7 +22,19 @@ public class Game {
             teamB.runPlay(teamA);
         }
         
-        System.out.println();
+        System.out.println("The quarter is nearly over");
+        
+
+        teamA.runPlay(teamB);
+        teamB.runPlay(teamA);
+        teamA.runPlay(teamB);
+        System.out.println("");
+        System.out.println("As the clock is winding down...");
+
+        teamB.runPlay(teamA);
+
+
+
         System.out.println(teamA);
         System.out.println(teamB);
         
@@ -68,6 +80,9 @@ public class Game {
         Player[] celticsRoster = {JasonTatum,JaylenBrown,MarcusSmart,DerrickWhite,AlHorford};
         Team celtics = new Team("Celtics",celticsRoster,celticsShooters,celticsRebounders,celticsPassers,23,73,63,14);
         
+
+
+
         Player StephenCurry = new Player(30,7,7,50,43,"Stephen Curry");
         Player KlayThompson = new Player(18,4,3,40,40,"Klay Thompson");
         Player DraymondGreen = new Player(9,6,7,56,31, "Draymond Green");
@@ -79,6 +94,10 @@ public class Game {
         Player[] warriorsRoster = {StephenCurry,KlayThompson,DraymondGreen,AndrewWiggins,KevonLooney};
         Team warriors = new Team("Warriors",warriorsRoster,warriorsShooters,warriorsRebounders,warriorsPassers,26,71,70,16);
         
+
+
+
+
         playGame(celtics,warriors);
         System.out.println();
         
