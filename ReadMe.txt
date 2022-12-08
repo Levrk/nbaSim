@@ -1,7 +1,10 @@
 NBA simulator - work in progress
 
 description:
-Program currently capable of simulating a game between the Celtics and Warriors (missing the outcome)
+Program currently capable of simulating a game between a select group of NBA teams
+(team options: cavs, celtics, warriors)
+
+HOW TO USE: just run "java Main celtics warriors" in the command line to watch them play
 
 (player stats from ESPN 2022)
 (feel free to use/modify/contribute to this code as you see fit!)
@@ -24,7 +27,7 @@ issues to fix:
 [!]  fix looping shots after miss
 [!]  keep track of team points
 [!]  print final scores and winner
-[ ]  fix the way player/team data is inputted
+[!]  fix the way player/team data is inputted
 [!]  add documentation
 [!]  reset player stats after each game
 
