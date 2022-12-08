@@ -36,8 +36,22 @@ public class Team {
 
     public void printWinner(){
         System.out.println();
+        System.out.println("***************");
         System.out.println(name + " win!!!");
+        System.out.println("***************");
     }
+
+    public void resetStats(){
+        //function to reset player stats
+        for (Player p : team){
+            p.rebounds = 0;
+            p.assists = 0;
+            p.points = 0;
+            p.tov = 0;
+        }
+
+    }
+    
 
     public Player getShooter(){
         //returns the shooter

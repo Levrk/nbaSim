@@ -22,10 +22,12 @@ issues to fix:
     - rework the shoot function to return an array of passer and shooter?
 [!]  fix rebounding stats
 [!]  fix looping shots after miss
-[ ]  keep track of team points
-[ ]  print final scores and winner
+[!]  keep track of team points
+[!]  print final scores and winner
 [ ]  fix the way player/team data is inputted
 [!]  add documentation
+[!]  reset player stats after each game
+
 
 
 Things to add
