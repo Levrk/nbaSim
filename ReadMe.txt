@@ -8,3 +8,6 @@ issues to fix:
 [ ]  fix rebounding stats
 [ ]  fix looping shots after miss
 [ ]  keep track of team points
+
+
+test to make sure I am using GitHub properly
