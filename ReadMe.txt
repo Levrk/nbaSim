@@ -2,7 +2,7 @@ NBA simulator - work in progress
 
 description:
 Program currently capable of simulating a game between a select group of NBA teams
-(team options: cavs, celtics, warriors)
+(team options: cavs, celtics, warriors, nuggets, bucks)
 
 HOW TO USE: just run "java Main celtics warriors" in the command line to watch them play
 
@@ -20,9 +20,13 @@ Minor Limitations:
 
 
 
-issues to fix:
-[!]  fix the run play function
-    - rework the shoot function to return an array of passer and shooter?
+Teams to add:
+[ ]  add heat roster
+[ ]  add suns roster
+[ ]  add hawks roster
+
+Issues to fix:
+[!]  too many rebounds
 [!]  fix rebounding stats
 [!]  fix looping shots after miss
 [!]  keep track of team points
@@ -33,9 +37,10 @@ issues to fix:
 
 
 
-Things to add
+Things I could add
 [ ]  make a .txt file for inputting team info
 [ ]  more options for "dialogue"
+[ ]  create a game overview using game stats
 
 ! == completed
 
