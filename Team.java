@@ -136,7 +136,13 @@ public class Team {
             }
             else {
                 //indicates defensive rebound
-                //pick rebounder, update stats, print, shoot again
+                //check if it went out, pick rebounder, update stats, print, shoot again
+                chance = (int)(Math.random() * ((100) + 1));
+                if (chance >= 50) {
+                    System.out.println("The ball goes out, last touched by the " + name);
+                    System.out.println();
+                    return;
+                }
                 Player rebounder = this.getRebounder();
                 System.out.println(printRebound(rebounder,this,false));
                 rebounder.rebounds++;
