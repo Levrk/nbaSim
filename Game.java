@@ -11,7 +11,8 @@ public class Game {
 
     public static void playQuarter(Team teamA,Team teamB,Integer q, int pos){
         //runs i plays for each team and then 2 more each with special end of quarter messages
-        System.out.println("Quarter "+q);
+        if (q<=4) System.out.println("Quarter "+q);
+        else System.out.println("Overtime");
         System.out.println("---------");
         System.out.println("");
         for (int i = 0;i<pos;i++){
@@ -25,6 +26,23 @@ public class Game {
         System.out.println(teamA);
         System.out.println(teamB);
     }
+
+    public static Boolean tieCheck(Team teamA,Team teamB){
+        //this function will be used to check if the game is tied
+        // it will return true or false
+        int aTotal = 0;
+        for (Player A : teamA.team){
+            aTotal = aTotal + A.points;
+        }
+        int bTotal = 0;
+        for (Player B : teamB.team){
+            bTotal = bTotal + B.points;
+        }
+        
+        if(bTotal == aTotal) return true;
+        else return false;
+    }
+
 
     public static Team endGame(Team teamA,Team teamB){
         //this function will be used to print final scores
@@ -40,6 +58,7 @@ public class Game {
         System.out.println(teamA.name + " " + aTotal + " Points" );
         System.out.println(teamB.name + " " + bTotal + " Points" );
         //teamA wins in case of tie
+        if(bTotal == aTotal) return null;
         if (bTotal > aTotal) return teamB;
         else return teamA;
     }
@@ -47,19 +66,21 @@ public class Game {
 
     public static Team playGame(Team teamA,Team teamB){
         //simulates a game between 2 teams
-        //returns the winner (not yet)
         //might want to add a tip off to randomize who starts with the ball(needs work)
-        // if i do the above i will have to swap off between who is team a and b in the play quarter calls
-        playQuarter(teamA, teamB,1,20);
-        playQuarter(teamA, teamB,2,20);
-        playQuarter(teamA, teamB,3,20);
-        playQuarter(teamA, teamB,4,20);
+        playQuarter(teamA, teamB,1,28);
+        playQuarter(teamB, teamA,2,18);
+        playQuarter(teamA, teamB,3,18);
+        playQuarter(teamB, teamA,4,18);
+        //check for overtime
+        while (tieCheck(teamA,teamB)==true){
+            playQuarter(teamA, teamB,5,5);
+        }
+        //check winnner and endgame
         Team winner = endGame(teamA,teamB);
         winner.printWinner();
         //reset player stats
         teamA.resetStats();
         teamB.resetStats();
-        //maybe also a function to write box-scores as a .txt (needs work)
         return winner;
     
     }
