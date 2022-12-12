@@ -24,7 +24,7 @@ public class Player{
 
     public Player shoot(Team team){
         //determines if the shot is a 2 or 3 based on player 3p %
-        //fix it so kevon looney never shoots 3s (needs work)
+        if (this.threeP==0) return this.shoot2(team);
         if (this.threeP > 40) {
             int chance = (int)(Math.random() * ((9) + 1));
             if (chance > 3) return this.shoot3(team);
