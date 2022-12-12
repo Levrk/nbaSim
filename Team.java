@@ -10,7 +10,7 @@ public class Team {
     private int tov;
     public int assistP;
 
-    public Team (String name, Player[] team, int[] shooters, int[] passers, int[] rebounders, int Oreb, int Dreb, int assistP, int tov){
+    public Team (String name, Player[] team, int[] shooters, int[] rebounders,int[] passers, int Oreb, int Dreb, int assistP, int tov){
         this.name = name;
         this.team = team;
         // these arrays indicate probability of a given player to shoot/pass/rebound 
@@ -30,7 +30,7 @@ public class Team {
         //prints statsheet
         String output = this.name + " box score \n------------------\n";
         for (Player p : team)
-            output = output + (p.name + " " +Integer.toString(p.points) + " Points, "  + Integer.toString(p.rebounds) + " Rebounds, " + Integer.toString(p.assists)+ " Assists, " + Integer.toString(p.tov) + " Turnovers, "  + "\n");
+            output = output + (p.name + ": " +Integer.toString(p.points) + " Points, "  + Integer.toString(p.rebounds) + " Rebounds, " + Integer.toString(p.assists)+ " Assists, " + Integer.toString(p.tov) + " Turnovers "  + "\n");
         return output;
     }
 
@@ -59,6 +59,7 @@ public class Team {
         return team[shooters[chance]];
     }
 
+    
     public Player getRebounder(){
         //returns the rebounder 
         int chance = (int)(Math.random() * ((rebounders.length-1) + 1));
