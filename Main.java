@@ -77,7 +77,6 @@ public static Team netsSetup(){
 }
 
     public static Team nuggetsSetup(){
-       
         //sets up nuggets instances
         Player jokic = new Player(63,32,"Nicola Jokic");
         Player jamalMurray = new Player(43,36,"Jamal Murray");
@@ -93,53 +92,49 @@ public static Team netsSetup(){
     }
 
     public static Team heatSetup(){
-        //stats not updated
-        
-        Player kd = new Player(55,35,"Kevin Durant");
-        Player kyrie = new Player(48,32,"Kyrie Irving");
-        Player nicClaxton = new Player(47,42, "Nic Claxton");
-        Player sethCurry = new Player(49,32,"Seth Curry");
-        Player benSimmons = new Player(61,0, "Ben Simmons");
-        int[] heatShooters = {0,0,0,1,1,1,2,3};
-        int[] heatRebounders = {0,0,1,2,2,3,4};
-        int[] heatPassers = {0,0,1,1,2,3,4,4};
-        Player[] heatRoster = {kd,kyrie,nicClaxton,sethCurry,benSimmons};
-        Team heat = new Team("Heat",heatRoster,heatShooters,heatRebounders,heatPassers,22,68,63,15);
+        //sets up heat instances
+        Player JButler = new Player(53,38,"Jimmy Butler");
+        Player KLowry = new Player(40,35,"Kyle Lowry");
+        Player MStrus = new Player(42,35, "Max Strus");
+        Player THerro = new Player(45,38,"Tyler Herro");
+        Player BAdebayo = new Player(53,10, "Bam Adebayo");
+        int[] heatShooters = {0,0,0,1,1,2,2,3,4,4,4};
+        int[] heatRebounders = {0,0,1,2,3,3,4,4,4};
+        int[] heatPassers = {0,0,1,1,2,3,4};
+        Player[] heatRoster = {JButler,KLowry,MStrus,THerro,BAdebayo};
+        Team heat = new Team("Heat",heatRoster,heatShooters,heatRebounders,heatPassers,26,73,62,15);
         return heat;
     }
 
     public static Team sunsSetup(){
-        //stats not updated
-        
-        Player kd = new Player(55,35,"Kevin Durant");
-        Player kyrie = new Player(48,32,"Kyrie Irving");
-        Player nicClaxton = new Player(47,42, "Nic Claxton");
-        Player sethCurry = new Player(49,32,"Seth Curry");
-        Player benSimmons = new Player(61,0, "Ben Simmons");
-        int[] sunsShooters = {0,0,0,1,1,1,2,3};
-        int[] sunsRebounders = {0,0,1,2,2,3,4};
-        int[] sunsPassers = {0,0,1,1,2,3,4,4};
-        Player[] sunsRoster = {kd,kyrie,nicClaxton,sethCurry,benSimmons};
-        Team suns = new Team("Suns",sunsRoster,sunsShooters,sunsRebounders,sunsPassers,22,68,63,15);
+        //sets up suns instances
+        Player DBooker = new Player(48,38,"Devin Booker");
+        Player CPaul = new Player(38,32,"Chris Paul");
+        Player Cjohnson = new Player(45,43, "Cam Johnson");
+        Player MBridges = new Player(49,43,"Mikal Bridges");
+        Player DAyton = new Player(63,31, "Deandre Ayton");
+        int[] sunsShooters = {0,0,0,1,2,3,3,4,4};
+        int[] sunsRebounders = {0,0,1,2,2,3,3,4,4,4,4};
+        int[] sunsPassers = {0,0,1,1,1,2,3,4};
+        Player[] sunsRoster = {DBooker,CPaul,Cjohnson,MBridges,DAyton};
+        Team suns = new Team("Suns",sunsRoster,sunsShooters,sunsRebounders,sunsPassers,32,72,63,14);
         return suns;
     }
 
     public static Team hawksSetup(){
-        //stats not updated
-        //sets up cavs instances
-        Player kd = new Player(55,35,"Kevin Durant");
-        Player kyrie = new Player(48,32,"Kyrie Irving");
-        Player nicClaxton = new Player(47,42, "Nic Claxton");
-        Player sethCurry = new Player(49,32,"Seth Curry");
-        Player benSimmons = new Player(61,0, "Ben Simmons");
-        int[] hawksShooters = {0,0,0,1,1,1,2,3};
-        int[] hawksRebounders = {0,0,1,2,2,3,4};
-        int[] hawksPassers = {0,0,1,1,2,3,4,4};
-        Player[] hawksRoster = {kd,kyrie,nicClaxton,sethCurry,benSimmons};
-        Team hawks = new Team("Hawks",hawksRoster,hawksShooters,hawksRebounders,hawksPassers,22,68,63,15);
+        //sets up hawks instances
+        Player TYoung = new Player(41,29,"Trey Young");
+        Player DMurray = new Player(45,37,"Dejounte Murray");
+        Player BBogdonavic= new Player(42,39, "Bogdan Bogdonavic");
+        Player JCollins = new Player(48,22,"John Collins");
+        Player ClintCapela = new Player(63,0, "Clint Capela");
+        int[] hawksShooters = {0,0,0,1,1,2,2,3,3,4,4};
+        int[] hawksRebounders = {0,1,2,3,3,4,4};
+        int[] hawksPassers = {0,0,0,1,1,2,3,4};
+        Player[] hawksRoster = {TYoung,DMurray,BBogdonavic,JCollins,ClintCapela};
+        Team hawks = new Team("Hawks",hawksRoster,hawksShooters,hawksRebounders,hawksPassers,29,72,55,13);
         return hawks;
     }
-
 
 
 
